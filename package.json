@@ -1,0 +1,104 @@
+{
+  "name": "storybook-starter",
+  "version": "1.0.0",
+  "description": "This repository contains a storybook starter.",
+  "main": "index.js",
+  "author": "Fadi ABDELMESSIH <fadi.william.ghali@gmail.com> (https://www.levioza.tech/)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "build-storybook",
+    "test-watch": "jest --watch",
+    "test": "jest --coverage",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "precommit": "lint-staged",
+    "commit": "git-cz"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,md}": [
+      "prettier --write",
+      "git add -u"
+    ]
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "antd": "3.12.1",
+    "react": "16.7.0",
+    "react-dom": "16.7.0",
+    "react-test-renderer": "16.7.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "7.2.1",
+    "@commitlint/config-conventional": "7.1.2",
+    "@storybook/addon-actions": "^4.1.4",
+    "@storybook/addon-links": "^4.1.4",
+    "@storybook/addon-storyshots": "4.1.4",
+    "@storybook/addons": "^4.1.4",
+    "@storybook/react": "4.1.4",
+    "@types/antd": "1.0.0",
+    "@types/jest": "23.3.12",
+    "@types/react": "16.7.18",
+    "@types/react-dom": "16.0.11",
+    "@types/react-test-renderer": "16.0.3",
+    "@types/storybook__react": "4.0.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-plugin-import": "1.11.0",
+    "babel-plugin-transform-remove-console": "6.9.4",
+    "babel-preset-env": "^1.7.0",
+    "caniuse-lite": "^1.0.30000697",
+    "codecov": "3.1.0",
+    "conventional-changelog-cli": "2.0.11",
+    "cssnano": "4.1.8",
+    "cz-conventional-changelog": "2.1.0",
+    "file-loader": "3.0.1",
+    "ghooks": "2.0.4",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "23.6.0",
+    "less": "^3.0.0",
+    "less-loader": "4.1.0",
+    "lint-staged": "8.1.0",
+    "node-sass": "4.11.0",
+    "perfectionist": "2.4.0",
+    "postcss-cssnext": "3.1.0",
+    "postcss-easy-import": "3.0.0",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-font-magician": "2.2.1",
+    "prettier": "1.15.3",
+    "sass-loader": "7.1.0",
+    "ts-jest": "23.10.5",
+    "typescript": "3.2.2",
+    "url-loader": "1.1.2",
+    "webpack": "^4.28.1"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss|less)$": "identity-obj-proxy"
+    },
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  }
+}
